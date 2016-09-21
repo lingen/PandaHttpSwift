@@ -26,7 +26,7 @@ class PandaHttpSwiftTests: XCTestCase {
         let response:HttpResponse = try NetworkSession.sharedInstance().syncRequest(request: request)
         
         if response.isRequestOk() {
-            let result:String? = response.exceptedStringResult()
+            let result:Dictionary<String,Any>? = response.excepedDictionayResult()
             print("返回结果\(result!)")
         }
     }
@@ -48,7 +48,6 @@ class PandaHttpSwiftTests: XCTestCase {
         
         if response.isRequestOk() {
             let result = response.excepedDictionayResult()
-            
             print("结果 :\(result)")
         }
     }
