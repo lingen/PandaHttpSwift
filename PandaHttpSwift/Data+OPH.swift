@@ -21,7 +21,7 @@ extension Data {
     }
     
     //将 DATA 转换为Dictionary类型
-    func OPH_JsonResult() -> Dictionary<String,Any>? {
+    func OPH_DictionaryResult() -> Dictionary<String,Any>? {
         
         let jsonResult:Dictionary<String,Any>? = try? JSONSerialization.jsonObject(with: self, options: JSONSerialization.ReadingOptions.mutableLeaves) as! Dictionary<String, Any>
         

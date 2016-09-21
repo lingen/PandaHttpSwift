@@ -27,7 +27,7 @@ class PandaHttpSwiftTests: XCTestCase {
         let response:OPHResponse = try! OPHNetWork.sharedInstance().syncRequest(request: request)
         
         if response.isRequestOk() {
-            let result:String? = response.data.OPH_StringResult()
+            let result:String? = response.exceptedStringResult()
             print("返回结果\(result!)")
         }
     }
@@ -48,7 +48,7 @@ class PandaHttpSwiftTests: XCTestCase {
         let response:OPHResponse = try! OPHNetWork.sharedInstance().syncRequest(request: request)
         
         if response.isRequestOk() {
-            let result = response.data.OPH_JsonResult()
+            let result = response.exceptedStringResult()
             
             print("结果 :\(result)")
         }
@@ -69,11 +69,8 @@ class PandaHttpSwiftTests: XCTestCase {
         let response:OPHResponse = try! OPHNetWork.sharedInstance().syncRequest(request: request)
         
         if response.isRequestOk() {
-            
-            let result = response.data.OPH_JsonResult()
-            
+            let result = response.excepedDictionayResult()
             print("结果 :\(result)")
-            
         }
 
     }

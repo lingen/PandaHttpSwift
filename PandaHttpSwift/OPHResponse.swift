@@ -49,6 +49,12 @@ class OPHResponse: NSObject {
         return response
     }
     
+    func exceptedStringResult() -> String? {
+        return self.data.OPH_StringResult()
+    }
     
+    func excepedDictionayResult() -> Dictionary<String,Any>? {
+        return self.data.OPH_DictionaryResult()
+    }
     
 }
