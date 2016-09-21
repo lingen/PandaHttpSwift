@@ -21,7 +21,7 @@ class PandaHttpSwiftTests: XCTestCase {
     
     func testGetJson() throws {
         
-        let request:HttpRequest = HttpRequest.jsonRequest(url: "http://openpanda.org:8081/account/search?search=l&page=1&pagesize=10", method: .HTTP_GET)
+        let request:HttpRequest = HttpRequest.jsonRequest(url: "http://localhost:8081/account/search?search=l&page=1&pagesize=10", method: .HTTP_GET)
         
         let response:HttpResponse = try NetworkSession.sharedInstance().syncRequest(request: request)
         
@@ -32,7 +32,7 @@ class PandaHttpSwiftTests: XCTestCase {
     }
     
     func testPostJson() throws {
-        let url:String = "http://openpanda.org:8081/account";
+        let url:String = "http://localhost:8081/account";
         
         let params:Dictionary<String,Any> = [
             "username":"lingen",
@@ -54,7 +54,7 @@ class PandaHttpSwiftTests: XCTestCase {
     
     
     func testPutJson() throws {
-        let url:String = "http://openpanda.org:8081//account/changePwd";
+        let url:String = "http://localhost:8081//account/changePwd";
         
         let params:Dictionary<String,Any> = [
             "user_id":"123",
