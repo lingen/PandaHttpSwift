@@ -49,7 +49,7 @@ PandaHttpSwift是为 IOS Swift3开发提供的一个基础 HTTP 封装框架，�
 
 > 返回结果
 
-~~~json
+~~~
 
 返回结果["status": 0, "result": {
     page = 1;
@@ -103,7 +103,7 @@ PandaHttpSwift是为 IOS Swift3开发提供的一个基础 HTTP 封装框架，�
 
 >返回结果
 
-~~~json
+~~~
 
 结果 :Optional(["status": 10011, "result": <null>, "msg": mobile exists])
 
