@@ -9,7 +9,7 @@
 import Foundation
 
 //HTTP请求的响应结果
-class OPHResponse: NSObject {
+class HttpResponse: NSObject {
     
     static let HTTP_OK_REPONSE:Int = 200
     
@@ -30,20 +30,20 @@ class OPHResponse: NSObject {
     
     //请求是否返回了200
     func isRequestOk() -> Bool {
-        return self.statusCode == OPHResponse.HTTP_OK_REPONSE
+        return self.statusCode == HttpResponse.HTTP_OK_REPONSE
     }
     
     //正确的回应
-    class func okResponse(data:Data) -> OPHResponse {
-        let response:OPHResponse = OPHResponse()
+    class func okResponse(data:Data) -> HttpResponse {
+        let response:HttpResponse = HttpResponse()
         response.data = data
         response.statusCode = HTTP_OK_REPONSE
         return response
     }
     
     //返回错误的回应
-    class func errorStatusCodeResponse(statusCode:Int,error:Error?) -> OPHResponse {
-        let response:OPHResponse = OPHResponse()
+    class func errorStatusCodeResponse(statusCode:Int,error:Error?) -> HttpResponse {
+        let response:HttpResponse = HttpResponse()
         response.statusCode = statusCode
         response.error = error
         return response

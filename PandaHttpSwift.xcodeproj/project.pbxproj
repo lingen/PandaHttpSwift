@@ -8,16 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		6702CA021D9030CD00B367FB /* Data+OPH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6702CA011D9030CD00B367FB /* Data+OPH.swift */; };
-		6702CA041D90350100B367FB /* OPHNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6702CA031D90350100B367FB /* OPHNetwork.swift */; };
-		6702CA051D903E0C00B367FB /* OPHRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679108BE1D8BF86E00EFA978 /* OPHRequest.swift */; };
-		6702CA061D903E0F00B367FB /* OPHResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679108C01D8C010400EFA978 /* OPHResponse.swift */; };
-		6702CA071D903E1100B367FB /* OPHJsonStatusResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679108C41D8C06BE00EFA978 /* OPHJsonStatusResult.swift */; };
 		6702CA081D903E1300B367FB /* Data+OPH.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6702CA011D9030CD00B367FB /* Data+OPH.swift */; };
-		6702CA091D903E1500B367FB /* OPHNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6702CA031D90350100B367FB /* OPHNetwork.swift */; };
+		678F117A1D92CD7D00328705 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F11761D92CD7D00328705 /* HttpRequest.swift */; };
+		678F117B1D92CD7D00328705 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F11771D92CD7D00328705 /* HttpResponse.swift */; };
+		678F117C1D92CD7D00328705 /* JsonStatusResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F11781D92CD7D00328705 /* JsonStatusResult.swift */; };
+		678F117D1D92CD7D00328705 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F11791D92CD7D00328705 /* NetworkSession.swift */; };
+		678F117E1D92CEB400328705 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F11761D92CD7D00328705 /* HttpRequest.swift */; };
+		678F117F1D92CEB400328705 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F11771D92CD7D00328705 /* HttpResponse.swift */; };
+		678F11801D92CEB400328705 /* JsonStatusResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F11781D92CD7D00328705 /* JsonStatusResult.swift */; };
+		678F11811D92CEB400328705 /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678F11791D92CD7D00328705 /* NetworkSession.swift */; };
 		679108B81D8BF73C00EFA978 /* PandaHttpSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 679108B61D8BF73C00EFA978 /* PandaHttpSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		679108BF1D8BF86E00EFA978 /* OPHRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679108BE1D8BF86E00EFA978 /* OPHRequest.swift */; };
-		679108C11D8C010400EFA978 /* OPHResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679108C01D8C010400EFA978 /* OPHResponse.swift */; };
-		679108C51D8C06BE00EFA978 /* OPHJsonStatusResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679108C41D8C06BE00EFA978 /* OPHJsonStatusResult.swift */; };
 		679108CD1D8C291400EFA978 /* PandaHttpSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679108CC1D8C291400EFA978 /* PandaHttpSwiftTests.swift */; };
 		679108CF1D8C291400EFA978 /* PandaHttpSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 679108B31D8BF73C00EFA978 /* PandaHttpSwift.framework */; };
 /* End PBXBuildFile section */
@@ -34,13 +34,13 @@
 
 /* Begin PBXFileReference section */
 		6702CA011D9030CD00B367FB /* Data+OPH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+OPH.swift"; sourceTree = "<group>"; };
-		6702CA031D90350100B367FB /* OPHNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPHNetwork.swift; sourceTree = "<group>"; };
+		678F11761D92CD7D00328705 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		678F11771D92CD7D00328705 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		678F11781D92CD7D00328705 /* JsonStatusResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonStatusResult.swift; sourceTree = "<group>"; };
+		678F11791D92CD7D00328705 /* NetworkSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		679108B31D8BF73C00EFA978 /* PandaHttpSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PandaHttpSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		679108B61D8BF73C00EFA978 /* PandaHttpSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PandaHttpSwift.h; sourceTree = "<group>"; };
 		679108B71D8BF73C00EFA978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		679108BE1D8BF86E00EFA978 /* OPHRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPHRequest.swift; sourceTree = "<group>"; };
-		679108C01D8C010400EFA978 /* OPHResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPHResponse.swift; sourceTree = "<group>"; };
-		679108C41D8C06BE00EFA978 /* OPHJsonStatusResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPHJsonStatusResult.swift; sourceTree = "<group>"; };
 		679108CA1D8C291400EFA978 /* PandaHttpSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PandaHttpSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		679108CC1D8C291400EFA978 /* PandaHttpSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PandaHttpSwiftTests.swift; sourceTree = "<group>"; };
 		679108CE1D8C291400EFA978 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,13 +86,13 @@
 		679108B51D8BF73C00EFA978 /* PandaHttpSwift */ = {
 			isa = PBXGroup;
 			children = (
+				678F11761D92CD7D00328705 /* HttpRequest.swift */,
+				678F11771D92CD7D00328705 /* HttpResponse.swift */,
+				678F11781D92CD7D00328705 /* JsonStatusResult.swift */,
+				678F11791D92CD7D00328705 /* NetworkSession.swift */,
 				679108B61D8BF73C00EFA978 /* PandaHttpSwift.h */,
 				679108B71D8BF73C00EFA978 /* Info.plist */,
-				679108BE1D8BF86E00EFA978 /* OPHRequest.swift */,
-				679108C01D8C010400EFA978 /* OPHResponse.swift */,
-				679108C41D8C06BE00EFA978 /* OPHJsonStatusResult.swift */,
 				6702CA011D9030CD00B367FB /* Data+OPH.swift */,
-				6702CA031D90350100B367FB /* OPHNetwork.swift */,
 			);
 			path = PandaHttpSwift;
 			sourceTree = "<group>";
@@ -219,11 +219,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				679108C51D8C06BE00EFA978 /* OPHJsonStatusResult.swift in Sources */,
+				678F117B1D92CD7D00328705 /* HttpResponse.swift in Sources */,
+				678F117D1D92CD7D00328705 /* NetworkSession.swift in Sources */,
 				6702CA021D9030CD00B367FB /* Data+OPH.swift in Sources */,
-				6702CA041D90350100B367FB /* OPHNetwork.swift in Sources */,
-				679108C11D8C010400EFA978 /* OPHResponse.swift in Sources */,
-				679108BF1D8BF86E00EFA978 /* OPHRequest.swift in Sources */,
+				678F117C1D92CD7D00328705 /* JsonStatusResult.swift in Sources */,
+				678F117A1D92CD7D00328705 /* HttpRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,12 +231,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6702CA071D903E1100B367FB /* OPHJsonStatusResult.swift in Sources */,
+				678F117E1D92CEB400328705 /* HttpRequest.swift in Sources */,
+				678F117F1D92CEB400328705 /* HttpResponse.swift in Sources */,
+				678F11801D92CEB400328705 /* JsonStatusResult.swift in Sources */,
+				678F11811D92CEB400328705 /* NetworkSession.swift in Sources */,
 				6702CA081D903E1300B367FB /* Data+OPH.swift in Sources */,
 				679108CD1D8C291400EFA978 /* PandaHttpSwiftTests.swift in Sources */,
-				6702CA051D903E0C00B367FB /* OPHRequest.swift in Sources */,
-				6702CA091D903E1500B367FB /* OPHNetwork.swift in Sources */,
-				6702CA061D903E0F00B367FB /* OPHResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

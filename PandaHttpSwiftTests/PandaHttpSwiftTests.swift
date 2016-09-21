@@ -20,9 +20,10 @@ class PandaHttpSwiftTests: XCTestCase {
     }
     
     func testGetJson() throws {
-        let request:OPHRequest = OPHRequest.jsonRequest(url: "http://openpanda.org:8081/account/search?search=l&page=1&pagesize=10", method: .OPH_HTTP_GET)
         
-        let response:OPHResponse = try OPHNetWork.sharedInstance().syncRequest(request: request)
+        let request:HttpRequest = HttpRequest.jsonRequest(url: "http://openpanda.org:8081/account/search?search=l&page=1&pagesize=10", method: .HTTP_GET)
+        
+        let response:HttpResponse = try NetworkSession.sharedInstance().syncRequest(request: request)
         
         if response.isRequestOk() {
             let result:String? = response.exceptedStringResult()
@@ -41,12 +42,12 @@ class PandaHttpSwiftTests: XCTestCase {
             "email":"lingen@foxmail.com"
         ]
         
-        let request:OPHRequest = OPHRequest.jsonRequest(url: url, method: .OPH_HTTP_POST, params: params)
+        let request:HttpRequest = HttpRequest.jsonRequest(url: url, method: .HTTP_POST, params: params)
         
-        let response:OPHResponse = try OPHNetWork.sharedInstance().syncRequest(request: request)
+        let response:HttpResponse = try NetworkSession.sharedInstance().syncRequest(request: request)
         
         if response.isRequestOk() {
-            let result = response.exceptedStringResult()
+            let result = response.excepedDictionayResult()
             
             print("结果 :\(result)")
         }
@@ -62,15 +63,15 @@ class PandaHttpSwiftTests: XCTestCase {
             "new_pwd":"123"
         ]
         
-        let request:OPHRequest = OPHRequest.jsonRequest(url: url, method: .OPH_HTTP_PUT, params: params)
+        let request:HttpRequest = HttpRequest.jsonRequest(url: url, method: .HTTP_PUT, params: params)
         
-        let response:OPHResponse = try OPHNetWork.sharedInstance().syncRequest(request: request)
+        let response:HttpResponse = try NetworkSession.sharedInstance().syncRequest(request: request)
         
         if response.isRequestOk() {
             let result = response.excepedDictionayResult()
             print("结果 :\(result)")
         }
-
+        
     }
     
     func testDeletJson() {

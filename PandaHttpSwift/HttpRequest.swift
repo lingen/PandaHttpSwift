@@ -10,24 +10,24 @@ import Foundation
 
 
 //请求类型
-enum OPHRequestMethod{
+enum HttpRequestMethod{
     
     //Get请求
-    case OPH_HTTP_GET
+    case HTTP_GET
     
     //Post请求
-    case OPH_HTTP_POST
+    case HTTP_POST
     
     //PUT请求
-    case OPH_HTTP_PUT
+    case HTTP_PUT
     
     //DELETE请求
-    case OPH_HTTP_DELETE
+    case HTTP_DELETE
     
 }
 
 //请求ContentType类型
-enum OPHContentType{
+enum HttpContentType{
     
     //JSON格式类型的请求TYPE
     case JSON_CONTENT_TYPE
@@ -38,7 +38,7 @@ enum OPHContentType{
 }
 
 //OPHRequest类，构建一个网络请求
-class OPHRequest: NSObject {
+class HttpRequest: NSObject {
     
     //默认的HTTP请求超时时间，为120 S
     static let DEFAULT_TIMEOUT:Int = 60 * 2
@@ -47,10 +47,10 @@ class OPHRequest: NSObject {
     var timeout:Int = 0
     
     //HTTP请求的方式
-    var method:OPHRequestMethod = .OPH_HTTP_GET
+    var method:HttpRequestMethod = .HTTP_GET
     
     //请求参数的格式
-    var contentType:OPHContentType = .JSON_CONTENT_TYPE
+    var contentType:HttpContentType = .JSON_CONTENT_TYPE
     
     //请求参数
     var params:Dictionary<String,Any> = [:]
@@ -59,8 +59,8 @@ class OPHRequest: NSObject {
     var url:String = ""
     
     //通过 URL,OPHRequestMethod两者构建一个 JSON类型的OPHRequest对象
-    class func jsonRequest(url:String,method:OPHRequestMethod) -> OPHRequest {
-        let request:OPHRequest = OPHRequest()
+    class func jsonRequest(url:String,method:HttpRequestMethod) -> HttpRequest {
+        let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
         request.timeout = DEFAULT_TIMEOUT
@@ -69,8 +69,8 @@ class OPHRequest: NSObject {
     }
     
     //通过 URL,OPHRequestMethod以及参数来构建一个OPHRequest对象
-    class func jsonRequest(url:String,method:OPHRequestMethod,params:Dictionary<String,Any>) -> OPHRequest {
-        let request:OPHRequest = OPHRequest()
+    class func jsonRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>) -> HttpRequest {
+        let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
         request.timeout = DEFAULT_TIMEOUT
@@ -80,8 +80,8 @@ class OPHRequest: NSObject {
     }
     
     //通过 URL,OPHRequestMethod以及参数来构建一个 OPHReqeust对象
-    class func jsonRequest(url:String,method:OPHRequestMethod,params:Dictionary<String,Any>,timeout:Int) -> OPHRequest {
-        let request:OPHRequest = OPHRequest()
+    class func jsonRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>,timeout:Int) -> HttpRequest {
+        let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
         request.timeout = timeout
@@ -91,8 +91,8 @@ class OPHRequest: NSObject {
     }
     
     //通过 URL,OPHRequestMethod两者构建一个Form类型的OPHRequest对象
-    class func formRequest(url:String,method:OPHRequestMethod) -> OPHRequest {
-        let request:OPHRequest = OPHRequest()
+    class func formRequest(url:String,method:HttpRequestMethod) -> HttpRequest {
+        let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
         request.timeout = DEFAULT_TIMEOUT
@@ -101,8 +101,8 @@ class OPHRequest: NSObject {
     }
     
     //通过 URL,OPHRequestMethod以及参数来构建一个Form类型的OPHRequest对象
-    class func formRequest(url:String,method:OPHRequestMethod,params:Dictionary<String,Any>) -> OPHRequest {
-        let request:OPHRequest = OPHRequest()
+    class func formRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>) -> HttpRequest {
+        let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
         request.timeout = DEFAULT_TIMEOUT
@@ -112,8 +112,8 @@ class OPHRequest: NSObject {
     }
     
     //通过 URL,OPHRequestMethod以及参数来构建一个Form类型的OPHReqeust对象
-    class func formRequest(url:String,method:OPHRequestMethod,params:Dictionary<String,Any>,timeout:Int) -> OPHRequest {
-        let request:OPHRequest = OPHRequest()
+    class func formRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>,timeout:Int) -> HttpRequest {
+        let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
         request.timeout = timeout

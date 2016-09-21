@@ -9,7 +9,7 @@
 import Foundation
 
 //网络请求的核心方法
-class OPHNetWork: NSObject {
+class NetworkSession: NSObject {
     
     //GET方法
     static let HTTP_GET:String = "GET"
@@ -29,10 +29,10 @@ class OPHNetWork: NSObject {
     
     
     //单例对象
-    private static let instance:OPHNetWork = OPHNetWork()
+    private static let instance:NetworkSession = NetworkSession()
     
     //返回单例
-    static func sharedInstance() -> OPHNetWork {
+    static func sharedInstance() -> NetworkSession {
         return instance;
     }
     
@@ -42,34 +42,34 @@ class OPHNetWork: NSObject {
     }
     
     //发出一个同步请求
-    func syncRequest(request:OPHRequest) throws -> OPHResponse {
-        var ophResponse:OPHResponse = OPHResponse()
+    func syncRequest(request:HttpRequest) throws -> HttpResponse {
+        var ophResponse:HttpResponse = HttpResponse()
         
         let url:URL = URL(string: request.url)!
         
         var urlReuqest:URLRequest = URLRequest.init(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: TimeInterval(request.timeout))
 
         switch request.method {
-        case .OPH_HTTP_GET:
-            urlReuqest.httpMethod = OPHNetWork.HTTP_GET
-        case .OPH_HTTP_POST:
-            urlReuqest.httpMethod = OPHNetWork.HTTP_POST
-        case .OPH_HTTP_PUT:
-            urlReuqest.httpMethod = OPHNetWork.HTTP_PUT
-        case .OPH_HTTP_DELETE:
-            urlReuqest.httpMethod = OPHNetWork.HTTP_DELETE
+        case .HTTP_GET:
+            urlReuqest.httpMethod = NetworkSession.HTTP_GET
+        case .HTTP_POST:
+            urlReuqest.httpMethod = NetworkSession.HTTP_POST
+        case .HTTP_PUT:
+            urlReuqest.httpMethod = NetworkSession.HTTP_PUT
+        case .HTTP_DELETE:
+            urlReuqest.httpMethod = NetworkSession.HTTP_DELETE
         }
         
         let params:Dictionary = request.params
         
         if params.count > 0 {
-            urlReuqest.setValue(OPHNetWork.JSON_CONTENT_TYPE, forHTTPHeaderField: OPHNetWork.CONTENT_TYPE)
+            urlReuqest.setValue(NetworkSession.JSON_CONTENT_TYPE, forHTTPHeaderField: NetworkSession.CONTENT_TYPE)
             
             let data:Data? = try? JSONSerialization.data(withJSONObject: params, options: JSONSerialization.WritingOptions.prettyPrinted)
             
             if (data != nil) {
                 
-                urlReuqest.setValue(String(data!.count), forHTTPHeaderField: OPHNetWork.Content_Length)
+                urlReuqest.setValue(String(data!.count), forHTTPHeaderField: NetworkSession.Content_Length)
                 
                 urlReuqest.httpBody = data
             }
@@ -87,10 +87,10 @@ class OPHNetWork: NSObject {
                 
                 if let error = error {
                     print("Error: \(error)")
-                    ophResponse = OPHResponse.errorStatusCodeResponse(statusCode: urlResponse.statusCode, error: error)
+                    ophResponse = HttpResponse.errorStatusCodeResponse(statusCode: urlResponse.statusCode, error: error)
                 } else if data != nil{
                     let data = data
-                    ophResponse = OPHResponse.okResponse(data: data!)
+                    ophResponse = HttpResponse.okResponse(data: data!)
                 }
                 
             }
