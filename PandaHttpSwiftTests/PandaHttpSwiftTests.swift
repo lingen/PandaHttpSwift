@@ -21,31 +21,8 @@ class PandaHttpSwiftTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        let defaultConfiguration = URLSessionConfiguration.default
-        let semaphore = DispatchSemaphore.init(value: 0)
-        let session:URLSession = URLSession(configuration: defaultConfiguration)
-        let url = URL(string: "http://lingenliu.com")
-        (session.dataTask(with: url!) { (data, response, error) in
-            if let error = error {
-                print("Error: \(error)")
-            } else if let response = response,
-                let data = data,
-                let string = String(data: data, encoding: .utf8) {
-                print("Response: \(response)")
-                print("DATA:\n\(string)\nEND DATA\n")
-                print("----2222> 获取到了网页的完整内容了....")
-            }
-            semaphore.signal()
-        }).resume()
-        
-        semaphore.wait()
-
-        print("----3333> 这个会在异步调用之后才输出。。为什么?因为我们使用信号量把异步转成同步了嘛....")
-    }
-    
     func testGetJson() {
-        let request:OPHRequest = OPHRequest.jsonRequest(url: "http://lingenliu.com", method: OPHRequestMethod.OPH_HTTP_GET)
+        let request:OPHRequest = OPHRequest.jsonRequest(url: "http://openpanda.org:8081/account/search?search=l&page=1&pagesize=10", method: .OPH_HTTP_GET)
         
         let response:OPHResponse = try! OPHNetWork.sharedInstance().syncRequest(request: request)
         
@@ -55,11 +32,54 @@ class PandaHttpSwiftTests: XCTestCase {
         }
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testPostJson() {
+        let url:String = "http://openpanda.org:8081/account";
+        
+        let params:Dictionary<String,Any> = [
+            "username":"lingen",
+            "password":"123456",
+            "nickname":"御剑",
+            "mobile":"123456",
+            "email":"lingen@foxmail.com"
+        ]
+        
+        let request:OPHRequest = OPHRequest.jsonRequest(url: url, method: .OPH_HTTP_POST, params: params)
+        
+        let response:OPHResponse = try! OPHNetWork.sharedInstance().syncRequest(request: request)
+        
+        if response.isRequestOk() {
+            let result = response.data.OPH_JsonResult()
+            
+            print("结果 :\(result)")
         }
+    }
+    
+    
+    func testPutJson() {
+        let url:String = "http://openpanda.org:8081//account/changePwd";
+        
+        let params:Dictionary<String,Any> = [
+            "user_id":"123",
+            "old_pwd":"123",
+            "new_pwd":"123"
+        ]
+        
+        let request:OPHRequest = OPHRequest.jsonRequest(url: url, method: .OPH_HTTP_PUT, params: params)
+        
+        let response:OPHResponse = try! OPHNetWork.sharedInstance().syncRequest(request: request)
+        
+        if response.isRequestOk() {
+            
+            let result = response.data.OPH_JsonResult()
+            
+            print("结果 :\(result)")
+            
+        }
+
+    }
+    
+    func testDeletJson() {
+        
     }
     
 }

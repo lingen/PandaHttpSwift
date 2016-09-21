@@ -49,6 +49,16 @@ class OPHNetWork: NSObject {
         
         var urlReuqest:URLRequest = URLRequest.init(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: TimeInterval(request.timeout))
 
+        switch request.method {
+        case .OPH_HTTP_GET:
+            urlReuqest.httpMethod = OPHNetWork.HTTP_GET
+        case .OPH_HTTP_POST:
+            urlReuqest.httpMethod = OPHNetWork.HTTP_POST
+        case .OPH_HTTP_PUT:
+            urlReuqest.httpMethod = OPHNetWork.HTTP_PUT
+        case .OPH_HTTP_DELETE:
+            urlReuqest.httpMethod = OPHNetWork.HTTP_DELETE
+        }
         
         let params:Dictionary = request.params
         
@@ -71,14 +81,18 @@ class OPHNetWork: NSObject {
         let session:URLSession = URLSession(configuration: defaultConfiguration)
         
         (session.dataTask(with: urlReuqest) { (data, response, error) in
-            let urlResponse:HTTPURLResponse = response as! HTTPURLResponse
-            
-            if let error = error {
-                print("Error: \(error)")
-                ophResponse = OPHResponse.errorStatusCodeResponse(statusCode: urlResponse.statusCode, error: error)
-            } else if data != nil{
-                let data = data
-                ophResponse = OPHResponse.okResponse(data: data!)
+            if response != nil {
+                
+                let urlResponse:HTTPURLResponse = response as! HTTPURLResponse
+                
+                if let error = error {
+                    print("Error: \(error)")
+                    ophResponse = OPHResponse.errorStatusCodeResponse(statusCode: urlResponse.statusCode, error: error)
+                } else if data != nil{
+                    let data = data
+                    ophResponse = OPHResponse.okResponse(data: data!)
+                }
+                
             }
             
             semaphore.signal()
