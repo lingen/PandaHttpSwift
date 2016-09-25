@@ -23,7 +23,7 @@ class PandaHttpSwiftTests: XCTestCase {
         
         let request:HttpRequest = HttpRequest.jsonRequest(url: "http://localhost:8081/account/search?search=l&page=1&pagesize=10", method: .HTTP_GET)
         
-        let response:HttpResponse = try NetworkSession.sharedInstance().request(request: request)
+        let response:HttpResponse = try NetworkSession.sharedInstance().jsonRequest(request: request)
         
         if response.isRequestOk() {
             let result:Dictionary<String,Any>? = response.excepedDictionayResult()
@@ -44,7 +44,7 @@ class PandaHttpSwiftTests: XCTestCase {
         
         let request:HttpRequest = HttpRequest.jsonRequest(url: url, method: .HTTP_POST, params: params)
         
-        let response:HttpResponse = try NetworkSession.sharedInstance().request(request: request)
+        let response:HttpResponse = try NetworkSession.sharedInstance().jsonRequest(request: request)
         
         if response.isRequestOk() {
             let result = response.excepedDictionayResult()
@@ -64,7 +64,7 @@ class PandaHttpSwiftTests: XCTestCase {
         
         let request:HttpRequest = HttpRequest.jsonRequest(url: url, method: .HTTP_PUT, params: params)
         
-        let response:HttpResponse = try NetworkSession.sharedInstance().request(request: request)
+        let response:HttpResponse = try NetworkSession.sharedInstance().jsonRequest(request: request)
         
         if response.isRequestOk() {
             let result = response.excepedDictionayResult()

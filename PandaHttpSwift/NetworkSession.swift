@@ -42,7 +42,7 @@ class NetworkSession: NSObject {
     }
     
     //发出一个同步请求
-    func request(request:HttpRequest) throws -> HttpResponse {
+    func jsonRequest(request:HttpRequest) throws -> HttpResponse {
         var ophResponse:HttpResponse = HttpResponse()
         
         let url:URL = URL(string: request.url)!
