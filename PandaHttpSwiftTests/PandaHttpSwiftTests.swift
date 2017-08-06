@@ -54,7 +54,7 @@ class PandaHttpSwiftTests: XCTestCase {
     
     
     func testPutJson() throws {
-        let url:String = "http://localhost:8081//account/changePwd";
+        let url:String = "http://localhost:8081/account/changePwd";
         
         let params:Dictionary<String,Any> = [
             "user_id":"123",

@@ -50,11 +50,11 @@ class HttpResponse: NSObject {
     }
     
     func exceptedStringResult() -> String? {
-        return self.data.OPH_StringResult()
+        return self.data.StringResult()
     }
     
     func excepedDictionayResult() -> Dictionary<String,Any>? {
-        return self.data.OPH_DictionaryResult()
+        return self.data.DictionaryResult()
     }
     
 }

@@ -12,7 +12,7 @@ import Foundation
 extension Data {
     
     //返回 Data的 String类型
-    func OPH_StringResult() -> String? {
+    func StringResult() -> String? {
         
         let dataString:String? = String(data: self, encoding: String.Encoding.utf8)
         
@@ -21,7 +21,7 @@ extension Data {
     }
     
     //将 DATA 转换为Dictionary类型
-    func OPH_DictionaryResult() -> Dictionary<String,Any>? {
+    func DictionaryResult() -> Dictionary<String,Any>? {
         
         let jsonResult:Dictionary<String,Any>? = try? JSONSerialization.jsonObject(with: self, options: JSONSerialization.ReadingOptions.mutableLeaves) as! Dictionary<String, Any>
         
