@@ -10,19 +10,19 @@ import Foundation
 
 
 //请求类型
-public enum HttpRequestMethod{
+public enum HttpRequestMethod : String{
     
     //Get请求
-    case HTTP_GET
+    case HTTP_GET = "GET"
     
     //Post请求
-    case HTTP_POST
+    case HTTP_POST = "POST"
     
     //PUT请求
-    case HTTP_PUT
+    case HTTP_PUT = "PUT"
     
     //DELETE请求
-    case HTTP_DELETE
+    case HTTP_DELETE = "DELETE"
     
 }
 

@@ -19,14 +19,14 @@ class PandaHttpSwiftTests: XCTestCase {
         super.tearDown()
     }
     
-    func testGetJson() throws {
+    func testGet() throws {
         
-        let request:HttpRequest = HttpRequest.jsonRequest(url: "http://localhost:8081/account/search?search=l&page=1&pagesize=10", method: .HTTP_GET)
+        let request:HttpRequest = HttpRequest.jsonRequest(url: "http://www.baidu.com", method: .HTTP_GET)
         
         let response:HttpResponse = try NetworkSession.sharedInstance().jsonRequest(request: request)
         
         if response.isRequestOk() {
-            let result:Dictionary<String,Any>? = response.excepedDictionayResult()
+            let result = response.exceptedStringResult()
             print("返回结果\(result!)")
         }
     }
@@ -68,7 +68,7 @@ class PandaHttpSwiftTests: XCTestCase {
         
         if response.isRequestOk() {
             let result = response.excepedDictionayResult()
-            print("结果 :\(result)")
+            print("结果 :\(result ?? "")")
         }
         
     }

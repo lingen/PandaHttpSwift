@@ -11,16 +11,6 @@ import Foundation
 //网络请求的核心方法
 public class NetworkSession: NSObject {
     
-    //GET方法
-    static let HTTP_GET:String = "GET"
-    //POST方法
-    static let HTTP_POST:String = "POST"
-    //PUT方法
-    static let HTTP_PUT:String = "PUT"
-    //DELETE 方法
-    static let HTTP_DELETE:String = "DELETE"
-    
-    
     static let CONTENT_TYPE:String = "Content-Type"
     
     static let JSON_CONTENT_TYPE:String = "application/json"
@@ -48,17 +38,8 @@ public class NetworkSession: NSObject {
         let url:URL = URL(string: request.url)!
         
         var urlReuqest:URLRequest = URLRequest.init(url: url, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: TimeInterval(request.timeout))
-
-        switch request.method {
-        case .HTTP_GET:
-            urlReuqest.httpMethod = NetworkSession.HTTP_GET
-        case .HTTP_POST:
-            urlReuqest.httpMethod = NetworkSession.HTTP_POST
-        case .HTTP_PUT:
-            urlReuqest.httpMethod = NetworkSession.HTTP_PUT
-        case .HTTP_DELETE:
-            urlReuqest.httpMethod = NetworkSession.HTTP_DELETE
-        }
+        
+        urlReuqest.httpMethod = request.method.rawValue
         
         let params:Dictionary = request.params
         
