@@ -48,7 +48,7 @@ class PandaHttpSwiftTests: XCTestCase {
         
         if response.isRequestOk() {
             let result = response.excepedDictionayResult()
-            print("结果 :\(result)")
+            print("结果 :\(String(describing: result))")
         }
     }
     

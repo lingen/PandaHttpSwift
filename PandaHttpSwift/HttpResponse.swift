@@ -9,12 +9,12 @@
 import Foundation
 
 //HTTP请求的响应结果
-class HttpResponse: NSObject {
+public class HttpResponse: NSObject {
     
     static let HTTP_OK_REPONSE:Int = 200
     
     //请求HTTP 的回应 DATA 值
-    var data:Data
+    var data:Data?
     
     //请求的statusCode，200表示 HTTP OK
     var statusCode:Int
@@ -23,13 +23,12 @@ class HttpResponse: NSObject {
     var error:Error?
     
     override init(){
-        self.data = Data()
         self.statusCode = 0
         self.error = nil
     }
     
     //请求是否返回了200
-    func isRequestOk() -> Bool {
+    public func isRequestOk() -> Bool {
         return self.statusCode == HttpResponse.HTTP_OK_REPONSE
     }
     
@@ -49,12 +48,16 @@ class HttpResponse: NSObject {
         return response
     }
     
-    func exceptedStringResult() -> String? {
-        return self.data.StringResult()
+    public func exceptedStringResult() -> String? {
+        return self.data?.StringResult()
     }
     
-    func excepedDictionayResult() -> Dictionary<String,Any>? {
-        return self.data.DictionaryResult()
+    public func exceptedData() -> Data? {
+        return self.data
+    }
+    
+    public func excepedDictionayResult() -> Dictionary<String,Any>? {
+        return self.data?.DictionaryResult()
     }
     
 }

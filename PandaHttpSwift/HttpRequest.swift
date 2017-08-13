@@ -10,7 +10,7 @@ import Foundation
 
 
 //请求类型
-enum HttpRequestMethod{
+public enum HttpRequestMethod{
     
     //Get请求
     case HTTP_GET
@@ -27,7 +27,7 @@ enum HttpRequestMethod{
 }
 
 //请求ContentType类型
-enum HttpContentType{
+public enum HttpContentType{
     
     //JSON格式类型的请求TYPE
     case JSON_CONTENT_TYPE
@@ -38,7 +38,7 @@ enum HttpContentType{
 }
 
 //OPHRequest类，构建一个网络请求
-class HttpRequest: NSObject {
+public class HttpRequest: NSObject {
     
     //默认的HTTP请求超时时间，为120 S
     static let DEFAULT_TIMEOUT:Int = 60 * 2
@@ -59,7 +59,7 @@ class HttpRequest: NSObject {
     var url:String = ""
     
     //通过 URL,OPHRequestMethod两者构建一个 JSON类型的OPHRequest对象
-    class func jsonRequest(url:String,method:HttpRequestMethod) -> HttpRequest {
+    public class func jsonRequest(url:String,method:HttpRequestMethod) -> HttpRequest {
         let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
@@ -69,7 +69,7 @@ class HttpRequest: NSObject {
     }
     
     //通过 URL,OPHRequestMethod以及参数来构建一个OPHRequest对象
-    class func jsonRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>) -> HttpRequest {
+    public class func jsonRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>) -> HttpRequest {
         let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
@@ -80,7 +80,7 @@ class HttpRequest: NSObject {
     }
     
     //通过 URL,OPHRequestMethod以及参数来构建一个 OPHReqeust对象
-    class func jsonRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>,timeout:Int) -> HttpRequest {
+    public class func jsonRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>,timeout:Int) -> HttpRequest {
         let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
@@ -91,7 +91,7 @@ class HttpRequest: NSObject {
     }
     
     //通过 URL,OPHRequestMethod两者构建一个Form类型的OPHRequest对象
-    class func formRequest(url:String,method:HttpRequestMethod) -> HttpRequest {
+    public class func formRequest(url:String,method:HttpRequestMethod) -> HttpRequest {
         let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
@@ -101,7 +101,7 @@ class HttpRequest: NSObject {
     }
     
     //通过 URL,OPHRequestMethod以及参数来构建一个Form类型的OPHRequest对象
-    class func formRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>) -> HttpRequest {
+    public class func formRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>) -> HttpRequest {
         let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url
@@ -112,7 +112,7 @@ class HttpRequest: NSObject {
     }
     
     //通过 URL,OPHRequestMethod以及参数来构建一个Form类型的OPHReqeust对象
-    class func formRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>,timeout:Int) -> HttpRequest {
+    public class func formRequest(url:String,method:HttpRequestMethod,params:Dictionary<String,Any>,timeout:Int) -> HttpRequest {
         let request:HttpRequest = HttpRequest()
         request.method = method
         request.url = url

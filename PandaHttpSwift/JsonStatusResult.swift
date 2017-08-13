@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OPHJsonStatusResult: NSObject {
+public class OPHJsonStatusResult: NSObject {
     
     static let OPHJsonStatusResult_STATUS:String = "status"
     
@@ -16,14 +16,14 @@ class OPHJsonStatusResult: NSObject {
     
     static let OPHJsonStatusResult_MESSAGE = "message"
     
-    var status:Int = 0
+    public var status:Int = 0
     
-    var message:String = ""
+    public var message:String = ""
     
-    var result:NSDictionary = [:]
+    public var result:NSDictionary = [:]
     
     
-    func isResultSuccess() -> Bool {
+    public func isResultSuccess() -> Bool {
         return self.status == 0
     }
     

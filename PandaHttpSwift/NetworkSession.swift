@@ -9,7 +9,7 @@
 import Foundation
 
 //网络请求的核心方法
-class NetworkSession: NSObject {
+public class NetworkSession: NSObject {
     
     //GET方法
     static let HTTP_GET:String = "GET"
@@ -32,7 +32,7 @@ class NetworkSession: NSObject {
     private static let instance:NetworkSession = NetworkSession()
     
     //返回单例
-    static func sharedInstance() -> NetworkSession {
+    public static func sharedInstance() -> NetworkSession {
         return instance;
     }
     
@@ -42,7 +42,7 @@ class NetworkSession: NSObject {
     }
     
     //发出一个同步请求
-    func jsonRequest(request:HttpRequest) throws -> HttpResponse {
+    public func jsonRequest(request:HttpRequest) throws -> HttpResponse {
         var ophResponse:HttpResponse = HttpResponse()
         
         let url:URL = URL(string: request.url)!
